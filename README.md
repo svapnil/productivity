@@ -1,7 +1,8 @@
 # productivity
-A repo to store and easily transfer the productivity setup I use for development.
+A repo to store and easily transfer the productivity setup I use for development. Within it I
+plan on posting a collection of the productivity setups I have when I software engineer or do other tasks on my computer.
 
-## Hammerspoon and Karabiner
+# Hammerspoon and Karabiner
 ### Managing Windows and Applications
 
 I first found out about the Hammerspoon and Karabiner setup through Kevin Zheng, who has written a blog post on this [here.](https://kevzheng.com/hammerspoon-karabiner)
@@ -18,14 +19,19 @@ I added my own shortcuts to focus certain apps. Some of these examples are:
 ### `Hyperkey +`
 
 `Q` : VSCode
+
 `C` : Chrome
+
 `Spacebar` : iTerm
+
 `M` : Spotify
+
 `I` : Messages/Messenger Alternating
+
 
 and many more..
 
-### Installation
+## Installation
 
 Install [Hammerspoon](https://www.hammerspoon.org/)
 Install [Karabiner](https://karabiner-elements.pqrs.org/)
