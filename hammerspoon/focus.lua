@@ -6,6 +6,26 @@ Set application bindings here!
 
 ]]--
 
+-- Arrow Key Remaps to VIM
+
+hs.hotkey.bind(hyper, "j", function ()
+  hs.eventtap.keyStroke({}, "down")
+end)
+
+hs.hotkey.bind(hyper, "k", function ()
+  hs.eventtap.keyStroke({}, "up")
+end)
+
+hs.hotkey.bind(hyper, "l", function ()
+  hs.eventtap.keyStroke({}, "right")
+end)
+
+hs.hotkey.bind(hyper, "h", function ()
+  hs.eventtap.keyStroke({}, "left")
+end)
+
+--
+
 hs.hotkey.bind(hyper, "C", function ()
   hs.application.launchOrFocus('Google Chrome')
 end)
