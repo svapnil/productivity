@@ -18,10 +18,6 @@ hs.hotkey.bind(hyper,  "S", function()
   hs.application.launchOrFocus('Slack')
 end)
 
-hs.hotkey.bind(hyper,  "W", function()
-  hs.application.launchOrFocus('Microsoft Word')
-end)
-
 hs.hotkey.bind(hyper,  "M", function()
   hs.application.launchOrFocus('Spotify')
 end)
@@ -38,12 +34,16 @@ hs.hotkey.bind(hyper,  "space", function()
   hs.application.launchOrFocus('iTerm')
 end)
 
-hs.hotkey.bind(hyper,  "F", function()
+hs.hotkey.bind(hyper,  "W", function()
   hs.application.launchOrFocus('Figma')
 end)
 
 hs.hotkey.bind(hyper,  "G", function()
   hs.application.launchOrFocus('Simulator')
+end)
+
+hs.hotkey.bind(hyper,  "R", function()
+  hs.application.launchOrFocus('Calendar')
 end)
 
 hs.hotkey.bind(hyper, "I", function()
