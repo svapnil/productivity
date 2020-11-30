@@ -17,7 +17,10 @@
 
 hs.window.animationDuration = 0
 
-local sizes = {2, 3, 3/2}
+-- Use if using a normal aspect ratio
+-- local sizes = {3, 2, 3/2}
+-- Use if using an ultrawide aspect ratio
+local sizes = {3, 2, 3/2}
 local fullScreenSizes = {1, 4/3, 2}
 
 local GRID = {w = 24, h = 24}
@@ -135,6 +138,8 @@ function nextFullScreenStep()
 
     cell = hs.grid.get(win, screen)
 
+    -- Go to the next smallest size
+    -- BUG: Doesn't ever hit the last size of "2"
     local nextSize = fullScreenSizes[1]
     for i=1,#fullScreenSizes do
       if cell.w == GRID.w / fullScreenSizes[i] and 
@@ -146,10 +151,19 @@ function nextFullScreenStep()
       end
     end
 
-    cell.w = GRID.w / nextSize
-    cell.h = GRID.h / nextSize
-    cell.x = (GRID.w - GRID.w / nextSize) / 2
-    cell.y = (GRID.h - GRID.h / nextSize) / 2
+    -- Poor implementation. This logic overrides 4/3 to make it 
+    -- cover the middle of the screen for ultrawide
+    if (nextSize == 4/3) then
+      cell.w = GRID.w / 3
+      cell.h = GRID.h 
+      cell.x = (GRID.w - GRID.w / 3) / 2
+      cell.y = 0
+    else
+      cell.w = GRID.w / nextSize
+      cell.h = GRID.h / nextSize
+      cell.x = (GRID.w - GRID.w / nextSize) / 2
+      cell.y = (GRID.h - GRID.h / nextSize) / 2
+    end
 
     hs.grid.set(win, cell, screen)
   end
