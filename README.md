@@ -34,6 +34,7 @@ and many more..
 ## Installation
 
 Install [Hammerspoon](https://www.hammerspoon.org/)
+
 Install [Karabiner](https://karabiner-elements.pqrs.org/)
 
 Both of these applications will require some amount of Accessibility / Input Monitoring clearance from MacOS. Grant these permissions when prompted.
@@ -41,7 +42,7 @@ Both of these applications will require some amount of Accessibility / Input Mon
 
 Then, enter this directory and move the config files to their needed locatio
 
-`cp -r hammerspoon ~/.hammerspoon`
+`cp -r hammerspoon/. ~/.hammerspoon`
 
 `cp karabiner/karabiner.json ~/.config/karabiner/karabiner.json`
 
