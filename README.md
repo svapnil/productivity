@@ -40,7 +40,7 @@ Install [Karabiner](https://karabiner-elements.pqrs.org/)
 Both of these applications will require some amount of Accessibility / Input Monitoring clearance from MacOS. Grant these permissions when prompted.
 
 
-Then, enter this directory and move the config files to their needed locatio
+Then, enter this repo directory and move the config files to their needed location
 
 `cp -r hammerspoon/. ~/.hammerspoon`
 

@@ -48,15 +48,23 @@ end)
 
 hs.hotkey.bind(hyper, "I", function()
   messenger = hs.application.get("Messenger")
+  if not messenger then
+    hs.application.launchOrFocus('Messenger')
+    messenger = hs.application.get("Messenger")
+  end
   imessage = hs.application.get("Messages")
+  if not imessage then 
+    hs.application.launchOrFocus('Messages')
+    imessage = hs.application.get("Messages")
+  end
   local oldActive
   local newActive
-  if hs.application.isFrontmost(messenger) then
+  if messenger and hs.application.isFrontmost(messenger) then
     hs.application.launchOrFocus('Messages')
     newActive = imessage
     oldActive = messenger
   else
-    if hs.application.isFrontmost(imessage) then
+    if imessage and hs.application.isFrontmost(imessage) then
       hs.application.launchOrFocus('Messenger')
       newActive = messenger
       oldActive = imessage
@@ -64,12 +72,14 @@ hs.hotkey.bind(hyper, "I", function()
       hs.application.launchOrFocus('Messages')
     end
   end
-  local win = oldActive:focusedWindow()
-  local id = win:id()
-  local screen = win:screen()
-  cell = hs.grid.get(win, screen)
-  local newWindow = newActive:focusedWindow()
-  hs.grid.set(newWindow, cell, screen)
+  if oldActive and newActive then 
+    local win = oldActive:focusedWindow()
+    local id = win:id()
+    local screen = win:screen()
+    cell = hs.grid.get(win, screen)
+    local newWindow = newActive:focusedWindow()
+    hs.grid.set(newWindow, cell, screen)
+  end
 end)
 
 hs.hotkey.bind(hyper, "U", function()
