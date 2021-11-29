@@ -1,4 +1,10 @@
 # productivity
+
+### Demo
+https://user-images.githubusercontent.com/23139898/143818208-388971fa-9246-40c1-8dd4-bc0cea8766d1.mov
+
+
+
 A repo to store and easily transfer the productivity setup I use for development. Within it I
 plan on posting a collection of the productivity setups I have when I software engineer or do other tasks on my computer.
 
