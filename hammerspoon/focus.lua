@@ -12,7 +12,7 @@ hs.hotkey.bind(hyper, "C", function ()
 end)
 
 hs.hotkey.bind(hyper,  "Q", function()
-  hs.application.launchOrFocus('fb-vscode-insiders')
+  hs.application.launchOrFocus('Visual Studio Code')
 end)
 
 hs.hotkey.bind(hyper,  "E", function()
