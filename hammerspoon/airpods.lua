@@ -2,65 +2,44 @@
 
 airpods.lua
 
-Keeps track of airpod battery in the menu bar
+Connects Airpods to Mac Via Shortcut
 
-]]--
+-- ]]--
 
-local BLUETOOTH_DEVICE_STRING = "com.apple.bluetooth"
+function airPods(deviceName)
+    local s = [[
+        use framework "IOBluetooth"
+        use scripting additions
+        set AirPodsName to "AirPods"
+        on getFirstMatchingDevice(deviceName)
+            repeat with device in (current application's IOBluetoothDevice's pairedDevices() as list)
+                if (device's nameOrAddress as string) contains deviceName then return device
+            end repeat
+        end getFirstMatchingDevice
+        on connectDevice(device)
+            if not (device's isConnected as boolean) then
+                device's openConnection()
+                return "Connecting " & (device's nameOrAddress as string)
+            else
+                return "Already connected to Airpods"
+                -- device's closeConnection()
+                -- return "Disconnecting " & (device's nameOrAddress as string)
+            end if
+        end connectDevice
+    ]]
+    ..
+        'return connectDevice(getFirstMatchingDevice("' .. deviceName .. '"))\n'
+    ..
+    [[]]
+    return hs.osascript.applescript(s)
+  end
 
-local menu = hs.menubar.new()
-menu:removeFromMenuBar()
-
-local airpod_battery = 0
-local case_battery = 0
-
-local function isAirpods(device_table)
-    for k, v in pairs(device_table) do
-        if string.find(v['NAME'], "AirPods") then
-            return true
-        end
+hs.hotkey.bind(hyper, "`", function ()
+    local ok, output = airPods('AirPods Pro')
+    if ok then
+        hs.alert.show(output)
+    else
+        hs.alert.show("Couldn't connect to AirPods!")
     end
+end)
 
-    return false
-end
-
-local function listenBluetoothMessage(name, object, userInfo)
-    if userInfo == nil then
-        do return end
-    end
-
-    -- For debugging
-    -- print(string.format("name: %s\nobject: %s\nuserInfo: %s\n", name, object, hs.inspect(userInfo)))
-
-    if name == BLUETOOTH_DEVICE_STRING..".status" then
-        num_connected_devices = userInfo['CONNECTED_DEVICES_COUNT']
-        if num_connected_devices == 0 then
-            menu:removeFromMenuBar()
-        elseif isAirpods(userInfo['CONNECTED_DEVICES']) and not menu:isInMenuBar() then
-            menu:returnToMenuBar()
-            menu:setTitle("🎧")
-        end
-    elseif name == BLUETOOTH_DEVICE_STRING..".deviceUpdated" then
-        battery_left = userInfo['BatteryPercentLeft']
-        battery_right = userInfo['BatteryPercentRight']
-        case = userInfo['BatteryPercentCase']
-
-        if battery_left ~= nil and battery_right ~= nil then
-            airpod_battery = (battery_left + battery_right) / 2
-        end
-
-        if case ~= nil and case ~= 0 then
-          case_battery = case
-        end
-
-        menu:setTitle(airpod_battery.."% 🎧 ⚡"..case_battery.."%")
-    end
-end
-
-local listener = hs.distributednotifications.new(
-    listenBluetoothMessage,
-    nil,
-    nil
-)
-
-listener:start()

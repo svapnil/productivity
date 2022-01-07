@@ -11,6 +11,7 @@ cwd = os.getenv("HOME") .. "/.hammerspoon/"
 require('position')
 require('focus')
 require('monitor')
+require('airpods')
 
 --require('watcher') -- Use when developing
 --To get names of applications
