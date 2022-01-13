@@ -15,12 +15,8 @@ hs.hotkey.bind(hyper,  "Q", function()
   hs.application.launchOrFocus('Visual Studio Code')
 end)
 
-hs.hotkey.bind(hyper,  "E", function()
-  hs.application.launchOrFocus('Microsoft Outlook')
-end)
-
-hs.hotkey.bind(hyper,  "E", function()
-  hs.application.launchOrFocus('Google Chrome')
+hs.hotkey.bind(hyper,  "P", function()
+  hs.application.launchOrFocus('Postman')
 end)
 
 hs.hotkey.bind(hyper,  "M", function()
