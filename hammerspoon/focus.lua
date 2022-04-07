@@ -34,7 +34,7 @@ hs.hotkey.bind(hyper,  "R", function()
 end)
 
 hs.hotkey.bind(hyper,  "space", function()
-  hs.application.launchOrFocus('iTerm')
+  hs.application.launchOrFocus('Warp')
 end)
 
 hs.hotkey.bind(hyper, "I", function()
