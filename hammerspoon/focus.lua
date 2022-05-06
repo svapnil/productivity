@@ -9,24 +9,28 @@ Set application bindings here!
 wasNotionSelectedLast = false
 
 
-hs.hotkey.bind(hyper, "C", function ()
-  hs.application.launchOrFocus('Google Chrome')
-end)
-
 hs.hotkey.bind(hyper,  "Q", function()
   hs.application.launchOrFocus('Visual Studio Code')
+end)
+
+hs.hotkey.bind(hyper,  "E", function()
+  hs.application.launchOrFocus('Linear')
+end)
+
+hs.hotkey.bind(hyper,  "O", function()
+  hs.application.launchOrFocus('zoom.us')
 end)
 
 hs.hotkey.bind(hyper,  "P", function()
   hs.application.launchOrFocus('Postman')
 end)
 
-hs.hotkey.bind(hyper,  "M", function()
-  hs.application.launchOrFocus('Spotify')
+hs.hotkey.bind(hyper, "C", function ()
+  hs.application.launchOrFocus('Google Chrome')
 end)
 
-hs.hotkey.bind(hyper,  "O", function()
-  hs.application.launchOrFocus('zoom.us')
+hs.hotkey.bind(hyper,  "M", function()
+  hs.application.launchOrFocus('Spotify')
 end)
 
 hs.hotkey.bind(hyper,  "R", function()
