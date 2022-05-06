@@ -56,16 +56,15 @@ end)
 hs.hotkey.bind(hyper, "N", function()
   local oldActive
   local newActive
-  if wasNotionSelectedLast then
+  isNotionFrontmost =  hs.application.frontmostApplication() == hs.application.get("Notion")
+  if isNotionFrontmost then
     hs.application.launchOrFocus('Obsidian')
     newActive = hs.application.get('Obsidian')
     oldActive = hs.application.get('Notion')
-    wasNotionSelectedLast = false
   else
     hs.application.launchOrFocus('Notion')
     oldActive = hs.application.get('Obsidian')
     newActive = hs.application.get('Notion')
-    wasNotionSelectedLast = true
   end
   -- If both windows are active, make the new one match the size of old one.
   if oldActive and newActive then 
