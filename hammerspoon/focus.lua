@@ -6,8 +6,6 @@ Set application bindings here!
 
 ]]--
 
-wasNotionSelectedLast = false
-
 
 hs.hotkey.bind(hyper,  "Q", function()
   hs.application.launchOrFocus('Visual Studio Code')
@@ -55,6 +53,22 @@ end)
 
 hs.hotkey.bind(hyper, "N", function()
   hs.application.launchOrFocus('Notion')
+end)
+
+-- Only works if you have Microsoft Excel open. If you don't, it will do nothing.
+hs.hotkey.bind(hyper, "X", function()
+  excel = hs.application.get('Microsoft Excel')
+  if excel then
+    hs.application.launchOrFocus('Microsoft Excel')
+  end
+end)
+
+-- Only works if you have Microsoft Word open. If you don't, it will do nothing.
+hs.hotkey.bind(hyper, "W", function()
+  excel = hs.application.get('Microsoft Word')
+  if excel then
+    hs.application.launchOrFocus('Microsoft Word')
+  end
 end)
 
 hs.hotkey.bind(hyper, "N", function()
