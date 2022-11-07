@@ -53,3 +53,7 @@ Then, enter this repo directory and move the config files to their needed locati
 `cp karabiner/karabiner.json ~/.config/karabiner/karabiner.json`
 
 then reload the Hammerspoon config - and you're done!
+
+## Copy .zshrc File
+
+I ran `cp ~/.zshrc zshrc.copy` to get my zshrc file over to this PR, then I removed the sensitive information that could be in it. 
