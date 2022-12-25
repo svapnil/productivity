@@ -48,7 +48,7 @@ hs.hotkey.bind(hyper, "Z", function()
 end)
 
 hs.hotkey.bind(hyper, "1", function()
-  hs.execute("open ~/")
+  hs.execute("open ~/Downloads")
 end)
 
 hs.hotkey.bind(hyper, "N", function()
