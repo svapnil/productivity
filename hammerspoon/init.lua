@@ -13,6 +13,7 @@ require('focus')
 require('jump')
 require('monitor')
 require('airpods')
+require('rotate')
 
 --require('watcher') -- Use when developing
 --To get names of applications
