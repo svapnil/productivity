@@ -3,6 +3,7 @@ require("position")
 local GRID = {w = 24, h = 24}
 
 local APPLICATION_WHEEL = {
+    "Visual Studio Code",
     "Warp",
     "Visual Studio Code",
     "Google Chrome"
@@ -46,9 +47,33 @@ local moveToLeftSide = function(program_name)
     end
 end
 
-hs.hotkey.bind(hyper, "pageup", function()
-    print(APPLICATION_WHEEL[index])
-    moveToLeftSide(APPLICATION_WHEEL[index]) 
-    moveToRightSide(APPLICATION_WHEEL[index % #APPLICATION_WHEEL + 1]) 
-    index = index % #APPLICATION_WHEEL + 1 
+hs.hotkey.bind(nil, "f14", function()
+   newindex = (index % #APPLICATION_WHEEL) + 1
+   previousRightProgramName = APPLICATION_WHEEL[newindex] 
+
+   newRightProgramName = APPLICATION_WHEEL[newindex % #APPLICATION_WHEEL + 1]
+
+   moveToLeftSide(previousRightProgramName)
+   moveToRightSide(newRightProgramName)
+
+    -- focus the program you just moved left
+    hs.application.launchOrFocus(previousRightProgramName)
+
+   index = newindex
+end)
+
+hs.hotkey.bind(nil, "f15", function()
+    previousLeftProgramName = APPLICATION_WHEEL[index]
+
+    -- Go back one in the application wheel
+    newindex = ((index - 2) % #APPLICATION_WHEEL) + 1
+    newLeftWindowProgramName = APPLICATION_WHEEL[newindex]
+
+    moveToRightSide(previousLeftProgramName)
+    moveToLeftSide(newLeftWindowProgramName)
+
+    -- focus the program you just moved right
+    hs.application.launchOrFocus(previousLeftProgramName)
+
+    index = newindex
 end)
