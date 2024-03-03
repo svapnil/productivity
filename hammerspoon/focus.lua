@@ -27,6 +27,10 @@ hs.hotkey.bind(hyper,  "M", function()
   hs.application.launchOrFocus('Spotify')
 end)
 
+hs.hotkey.bind(hyper,  "N", function()
+  hs.application.launchOrFocus('Notion')
+end)
+
 hs.hotkey.bind(hyper,  "R", function()
   hs.application.launchOrFocus('Calendar')
 end)
@@ -47,9 +51,9 @@ hs.hotkey.bind(hyper, "1", function()
   hs.execute("open ~/Downloads")
 end)
 
-hs.hotkey.bind(hyper, "N", function()
-  hs.application.launchOrFocus('Obsidian')
-end)
+-- hs.hotkey.bind(hyper, "N", function()
+--   hs.application.launchOrFocus('Obsidian')
+-- end)
 
 -- Only works if you have Microsoft Excel open. If you don't, it will do nothing.
 hs.hotkey.bind(hyper, "X", function()
