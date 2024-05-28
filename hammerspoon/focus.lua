@@ -11,9 +11,9 @@ hs.hotkey.bind(hyper,  "Q", function()
   hs.application.launchOrFocus('Visual Studio Code')
 end)
 
-hs.hotkey.bind(hyper,  "O", function()
-  hs.application.launchOrFocus('zoom.us')
-end)
+-- CHATGPT APP - SET SHORTCUT IN APP
+-- hs.hotkey.bind(hyper,  "O", function()
+-- end)
 
 hs.hotkey.bind(hyper,  "P", function()
   hs.application.launchOrFocus('Postman')
