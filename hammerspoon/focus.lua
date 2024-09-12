@@ -51,7 +51,7 @@ hs.hotkey.bind(hyper, "Z", function()
   hs.application.launchOrFocus('Screenshot')
 end)
 
-hs.hotkey.bind(hyper, "\", function()
+hs.hotkey.bind(hyper, "\\", function()
   hs.execute("open ~/Downloads")
 end)
 
