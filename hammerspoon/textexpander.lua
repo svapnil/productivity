@@ -1,4 +1,5 @@
 
+local MESSAGE = "TEST MESSAGE"
 
 function tempPaste(content)
     -- save current clipboard data
