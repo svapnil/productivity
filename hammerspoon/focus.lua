@@ -6,13 +6,18 @@ Set application bindings here!
 
 ]]--
 
+-- In case we go back later..
 
 -- hs.hotkey.bind(hyper,  "Q", function()
 --   hs.application.launchOrFocus('Visual Studio Code')
 -- end)
 
+-- hs.hotkey.bind(hyper,  "Q", function()
+--   hs.application.launchOrFocus('Cursor')
+-- end)
+
 hs.hotkey.bind(hyper,  "Q", function()
-  hs.application.launchOrFocus('Cursor')
+  hs.application.launchOrFocus('Windsurf')
 end)
 
 -- CHATGPT APP - SET SHORTCUT IN APP
