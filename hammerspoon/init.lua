@@ -10,7 +10,6 @@ cwd = os.getenv("HOME") .. "/.hammerspoon/"
 -- Toggle modules here
 require('position')
 require('focus')
-require('paste')
 require('jump')
 require('monitor')
 require('airpods')
