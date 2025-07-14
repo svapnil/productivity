@@ -34,7 +34,7 @@ hs.hotkey.bind(hyper,  "M", function()
 end)
 
 hs.hotkey.bind(hyper,  "N", function()
-  hs.application.launchOrFocus('Notion')
+  hs.application.launchOrFocus('Obsidian')
 end)
 
 hs.hotkey.bind(hyper,  "R", function()
